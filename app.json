@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Cp",
+    "slug": "Cp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "src/assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "src/assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.Cp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "src/assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.anonymous.Cp",
+      "googleServicesFile": "android/app/google-services.json"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3d36bda5-6a40-4f0f-a0dd-36314079c303"
+      }
+    }
+  }
+}

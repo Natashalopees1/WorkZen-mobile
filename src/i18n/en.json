@@ -1,0 +1,103 @@
+{
+  "appName": "MottuSense",
+  "dashboard": "Dashboard",
+  "manageMotos": "Manage the motorcycles in your yard",
+  "registerMoto": "Register Bike",
+  "searchMotos": "Search Bikes",
+  "patioMap": "Yard Map",
+  "aboutUs": "About us",
+  "moreAboutUs": "More about us",
+  "aboutSubtitle": "About the MottuSense app",
+  "recentActivity": "Recent Activity",
+  "recentActivitySubtitle": "Latest movements in the yard",
+  "contact": "Contact",
+  "zoneLabel": "Zone",
+  "legendTitle": "Legend",
+  "version": "Version {{version}}",
+  "whoWeAre": "Who we are",
+  "whatWeOffer": "What we offer",
+  "cameraRegister": "Quick register via camera",
+  "searchByPlate": "Search by plate, make and model",
+  "mapView": "Yard map view",
+  "reports": "History and reports",
+  "users": "Users",
+  "uptime": "Uptime",
+  "companyDescription": "We are the team behind MottuSense — a solution designed to simplify yard management and motorcycle tracking.",
+  "mission": "Mission",
+  "missionText": "Simplify yard operations with automation and computer vision.",
+  "team": "Team",
+  "teamIntro": "Our team is made up of engineers, designers and product specialists focused on mobility.",
+  "contactCTA": "Get in touch",
+  "selectLanguage": "Language"
+  ,"pleaseFillAll": "Please fill all fields!",
+  "welcomeUser": "Welcome, {{user}}!",
+  "invalidCredentials": "Invalid credentials. Check your email and password.",
+  "storageError": "Error accessing local storage.",
+  "emailPlaceholder": "Email",
+  "passwordPlaceholder": "Password",
+  "login": "Sign in",
+  "signup": "Sign up",
+  "participants": "Participants",
+  "form": "Form",
+  "forgotPassword": "Forgot password?",
+  "devFeature": "Feature in development!",
+  "createAccount": "Create account"
+  ,"register": "Register"
+  ,"fillDetails": "Fill your details to continue"
+  ,"fullNamePlaceholder": "Full name"
+  ,"createPasswordPlaceholder": "Create a password"
+  ,"registerAction": "Register"
+  ,"registrationSuccess": "Registration completed"
+  ,"stepCapture": "1. Capture"
+  ,"cameraPermissionTitle": "Camera Permission Required"
+  ,"cameraPermissionDesc": "To use automatic plate recognition, you must allow camera access."
+  ,"cameraPermissionTip": "Tap \"Allow\" when the system asks for camera access, or check app settings."
+  ,"checkPermissions": "Check Permissions"
+  ,"manualEntry": "Manual entry"
+  ,"searchSubtitle": "Find and manage bikes in the yard"
+  ,"searchPlaceholder": "Search by plate, make or model"
+  ,"loadingMotos": "Loading bikes..."
+  ,"modelNotProvided": "Model not provided"
+  ,"idLabel": "ID:"
+  ,"plateLabel": "Plate:"
+  ,"colorLabel": "Color:"
+  ,"brandLabel": "Brand:"
+  ,"yearLabel": "Year:"
+  ,"viewDetails": "View details"
+  ,"locate": "Locate"
+  ,"filters": "Filters"
+  ,"parkSearchPlaceholder": "Search by plate..."
+  ,"active": "Active"
+  ,"removed": "Removed"
+  ,"all": "All"
+  ,"freeSlot": "Free"
+  ,"legendActive": "Active bike"
+  ,"legendMoved": "Moved bike"
+  ,"legendRemoved": "Removed bike"
+  ,"legendFree": "Free slot"
+  ,"mapSubtitle": "Visualize the location of bikes in the yard"
+  ,"patioLayout": "Yard layout"
+  ,"touchZones": "Tap zones to see bike details"
+  ,"entranceExit": "Entrance/Exit"
+  ,"motorcyclesTitle": "Motorcycles ({{count}})"
+  ,"touchToLocate": "Tap to locate on the map"
+  ,"plateModelRequired": "Plate and Model are required fields!"
+  ,"motoRegistered": "Bike registered successfully!"
+  ,"errorRegistering": "Error registering bike: {{msg}}"
+  ,"registerNewMoto": "Register New Bike"
+  ,"stepProgress": "Step 1 of 2 - Basic Information"
+  ,"platePlaceholderExample": "Ex: ABC-1234"
+  ,"modelPlaceholderExample": "Ex: CB 600F Hornet"
+  ,"selectBrand": "Select brand"
+  ,"selectYear": "Select year"
+  ,"selectColor": "Select color"
+  ,"nextStepTip": "In the next step you will set the bike location in the yard."
+  ,"back": "Back"
+  ,"save": "Save"
+  ,"sendingData": "Sending data..."
+  ,"plateLabelForm": "Plate *"
+  ,"modelLabelForm": "Model *"
+  ,"brandLabelForm": "Brand *"
+  ,"yearLabelForm": "Year"
+  ,"colorLabelForm": "Color"
+}
