@@ -1,12 +1,13 @@
 import React, { useLayoutEffect } from "react";
-import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, Image, ScrollView, StyleSheet, TouchableOpacity, Linking } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "../theme/ThemeContext";
-import { useI18n } from "../i18n/I18nProvider";
 
+// SobreNos reescrito para o produto atual: app de saúde mental
+// Mostra: visão, principais recursos (meditações, respiração, trilhas), planos, equipe e contato
+// Atualizado: 12/11/2025
 export default function SobreNos({ navigation }) {
   const { theme } = useTheme();
-  const { t } = useI18n();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -18,57 +19,54 @@ export default function SobreNos({ navigation }) {
     });
   }, [navigation]);
 
+  const openSupport = () => {
+    const url = "mailto:suporte@mottu-sense.app";
+    Linking.canOpenURL(url).then((supported) => supported && Linking.openURL(url));
+  };
+
   return (
     <ScrollView contentContainerStyle={[styles.container, { backgroundColor: theme.colors.background }]}>
-      <View style={[styles.card, { backgroundColor: theme.colors.card }]}>
-        <Image source={require("../assets/Mottu-sense.png")} style={styles.logo} resizeMode="contain" />
+      <View style={[styles.card, { backgroundColor: theme.colors.cardBackground }]}>
+        <Image source={require("../assets/Work-zen.png")} style={styles.logo} resizeMode="contain" />
 
-        <Text style={[styles.title, { color: theme.colors.text }]}>{t("aboutUs")}</Text>
-        <Text style={[styles.subtitle, { color: theme.colors.subtitleText }]}>{t("aboutSubtitle")}</Text>
+  <Text style={[styles.title, { color: theme.colors.text }]}>Sobre nós</Text>
+        <Text style={[styles.subtitle, { color: theme.colors.subtitleText }]}>Uma plataforma de bem-estar mental com meditações guiadas, exercícios de respiração e trilhas personalizadas.</Text>
 
-        <View style={styles.row}>
-          <View style={[styles.statBox, { backgroundColor: theme.colors.background }]}>
-            <Text style={[styles.statNumber, { color: theme.colors.text }]}>5k+</Text>
-            <Text style={[styles.statLabel, { color: theme.colors.subtitleText }]}>{t("users") || "Usuários"}</Text>
+        <View style={styles.section}>
+          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Recursos principais</Text>
+          <View style={styles.listItem}><Ionicons name="headset" size={18} color={theme.colors.primary} /><Text style={[styles.listText, { color: theme.colors.text }]}>Meditações guiadas (iniciantes a avançados)</Text></View>
+          <View style={styles.listItem}><Ionicons name="water" size={18} color={theme.colors.primary} /><Text style={[styles.listText, { color: theme.colors.text }]}>Exercícios de respiração com temporizador</Text></View>
+          <View style={styles.listItem}><Ionicons name="walk" size={18} color={theme.colors.primary} /><Text style={[styles.listText, { color: theme.colors.text }]}>Trilhas de sono e foco personalizadas</Text></View>
+          <View style={styles.listItem}><Ionicons name="chatbubbles" size={18} color={theme.colors.primary} /><Text style={[styles.listText, { color: theme.colors.text }]}>Recursos de autoajuda e exercícios práticos</Text></View>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Como funciona</Text>
+          <Text style={[styles.sectionText, { color: theme.colors.text }]}>Escolha um objetivo (reduzir estresse, melhorar sono, aumentar foco). O app sugere sessões curtas, exercícios diários e trilhas semanais que se adaptam ao seu progresso.</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Planos</Text>
+          <View style={styles.planBox}>
+            <Text style={[styles.planTitle, { color: theme.colors.text }]}>Gratuito</Text>
+            <Text style={[styles.planText, { color: theme.colors.subtitleText }]}>Acesso limitado a meditações e exercícios diários.</Text>
           </View>
-          <View style={[styles.statBox, { backgroundColor: theme.colors.background }]}>
-            <Text style={[styles.statNumber, { color: theme.colors.text }]}>98%</Text>
-            <Text style={[styles.statLabel, { color: theme.colors.subtitleText }]}>{t("uptime") || "Disponibilidade"}</Text>
+          <View style={styles.planBox}>
+            <Text style={[styles.planTitle, { color: theme.colors.text }]}>Premium</Text>
+            <Text style={[styles.planText, { color: theme.colors.subtitleText }]}>Trilhas completas, conteúdo exclusivo e estatísticas de progresso.</Text>
           </View>
         </View>
 
         <View style={styles.section}>
-          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>{t("whoWeAre")}</Text>
-          <Text style={[styles.sectionText, { color: theme.colors.text }]}>{t("companyDescription") || "Somos a equipe por trás do MottuSense — uma solução pensada para facilitar a gestão de pátios e o rastreamento de motocicletas."}</Text>
+          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>Equipe</Text>
+          <Text style={[styles.sectionText, { color: theme.colors.text }]}>Psicólogos, pesquisadores e designers dedicados a criar experiências seguras e baseadas em evidências.</Text>
         </View>
 
-        <View style={styles.section}>
-          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>{t("mission")}</Text>
-          <Text style={[styles.sectionText, { color: theme.colors.text }]}>{t("missionText") || "Simplificar operações de pátio com automação e visão computacional."}</Text>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>{t("whatWeOffer")}</Text>
-          <View style={styles.listItem}><Ionicons name="camera" size={18} color={theme.colors.primary} /><Text style={[styles.listText, { color: theme.colors.text }]}>{t("cameraRegister") || "Cadastro rápido via câmera"}</Text></View>
-          <View style={styles.listItem}><Ionicons name="search" size={18} color={theme.colors.primary} /><Text style={[styles.listText, { color: theme.colors.text }]}>{t("searchByPlate") || "Busca por placa, marca e modelo"}</Text></View>
-          <View style={styles.listItem}><Ionicons name="map" size={18} color={theme.colors.primary} /><Text style={[styles.listText, { color: theme.colors.text }]}>{t("mapView") || "Visualização do mapa do pátio"}</Text></View>
-          <View style={styles.listItem}><Ionicons name="bar-chart" size={18} color={theme.colors.primary} /><Text style={[styles.listText, { color: theme.colors.text }]}>{t("reports") || "Histórico e relatórios"}</Text></View>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={[styles.sectionTitle, { color: theme.colors.text }]}>{t("team")}</Text>
-          <Text style={[styles.sectionText, { color: theme.colors.text }]}>{t("teamIntro") || "Nossa equipe é formada por engenheiros, designers e especialistas em produtos focados em mobilidade."}</Text>
-        </View>
-
-        <TouchableOpacity style={[styles.contactButton, { backgroundColor: theme.colors.primary }]} onPress={() => { /* TODO: implementar ação de contato */ }}>
-          <Text style={[styles.contactButtonText, { color: theme.colors.background }]}>{t("contactCTA") || "Entre em contato"}</Text>
+        <TouchableOpacity style={[styles.contactButton, { backgroundColor: theme.colors.primary }]} onPress={openSupport}>
+          <Text style={[styles.contactButtonText, { color: theme.colors.background }]}>Fale com o suporte</Text>
         </TouchableOpacity>
 
-        <View style={[styles.hashBox, { backgroundColor: theme.colors.background, borderColor: theme.colors.border }]}> 
-          <Text style={[styles.hashText, { color: theme.colors.text }]}>4adf40ece4803e7fd50d545fbc9ddfb61de35d55</Text>
-        </View>
-
-        <Text style={[styles.version, { color: theme.colors.subtitleText }]}>{t("version", { version: "1.0.0" })}</Text>
+  <Text style={[styles.version, { color: theme.colors.subtitleText }]}>Versão 1.0.0</Text>
       </View>
     </ScrollView>
   );
@@ -153,6 +151,21 @@ const styles = StyleSheet.create({
   },
   contactButtonText: {
     fontWeight: "700",
+  },
+  planBox: {
+    width: "100%",
+    padding: 12,
+    borderRadius: 8,
+    borderWidth: 1,
+    marginTop: 8,
+  },
+  planTitle: {
+    fontSize: 15,
+    fontWeight: "700",
+  },
+  planText: {
+    fontSize: 13,
+    marginTop: 6,
   },
   version: {
     marginTop: 14,

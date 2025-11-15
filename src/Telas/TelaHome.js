@@ -10,21 +10,19 @@ import {
   StatusBar,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import MottuSense from "../../src/assets/Mottu-sense.png";
+import WorkZen from "../assets/Work-zen.png";
 import { useTheme } from "../theme/ThemeContext";
 import ThemeSwitcher from "../Componentes/ThemeSwitcher";
-import LanguageSwitcher from "../Componentes/LanguageSwitcher";
-import { useI18n } from "../i18n/I18nProvider";
 
 export default function TelaHome({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { t } = useI18n();
+  // i18n removido
   const { theme } = useTheme();
 
   const handleLogin = async () => {
     if (!email || !password) {
-      alert(t("pleaseFillAll") || "Por favor, preencha todos os campos!");
+      alert("Por favor, preencha todos os campos!");
       return;
     }
 
@@ -43,8 +41,8 @@ export default function TelaHome({ navigation }) {
 
       if (!response.ok) {
         const errBody = await response.json().catch(() => null);
-        const msg = errBody?.message || (t("invalidCredentials") || "Credenciais inválidas. Verifique seu e-mail e senha.");
-        alert(msg);
+  const msg = errBody?.message || "Credenciais inválidas. Verifique seu e-mail e senha.";
+  alert(msg);
         return;
       }
 
@@ -54,10 +52,10 @@ export default function TelaHome({ navigation }) {
       await AsyncStorage.setItem("email", email);
       await AsyncStorage.setItem("senha", password);
 
-      alert((t("welcomeUser") || "Bem-vindo, {{user}}!").replace("{{user}}", email));
+  alert(("Bem-vindo, {{user}}!").replace("{{user}}", email));
       navigation.navigate("TelaPrincipal");
     } catch (error) {
-      const msg = error?.message || (t("storageError") || "Erro ao acessar o armazenamento local.");
+  const msg = error?.message || "Erro ao acessar o armazenamento local.";
       alert(msg);
     }
   };
@@ -67,14 +65,13 @@ export default function TelaHome({ navigation }) {
       <StatusBar backgroundColor={theme.colors.primary} barStyle={theme.colors.statusBar} />
       <View style={[styles.card, { backgroundColor: theme.colors.primary }]}>
         <View style={styles.themeButtonContainer}>
-          <LanguageSwitcher />
           <ThemeSwitcher />
         </View>
-        <Image source={MottuSense} style={styles.logo} />
-        <Text style={styles.title}>{t("appName")}</Text>
+  <Image source={WorkZen} style={styles.logo} />
+  <Text style={styles.title}>Mottu Sense</Text>
 
         <TextInput
-          placeholder={t("emailPlaceholder") || "E-mail"}
+          placeholder={"E-mail"}
           placeholderTextColor="#fff"
           style={styles.input}
           value={email}
@@ -82,7 +79,7 @@ export default function TelaHome({ navigation }) {
         />
 
         <TextInput
-          placeholder={t("passwordPlaceholder") || "Senha"}
+          placeholder={"Senha"}
           placeholderTextColor="#fff"
           secureTextEntry
           style={styles.input}
@@ -91,18 +88,18 @@ export default function TelaHome({ navigation }) {
         />
 
         <TouchableOpacity style={styles.buttonPrimary} onPress={handleLogin}>
-          <Text style={styles.buttonText}>{t("login") || "Entrar"}</Text>
+          <Text style={styles.buttonText}>Entrar</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => alert(t("devFeature") || "Função em desenvolvimento!")}>
-          <Text style={styles.linkText}>{t("forgotPassword") || "Esqueceu a senha?"}</Text>
+        <TouchableOpacity onPress={() => alert("Função em desenvolvimento!")}> 
+          <Text style={styles.linkText}>Esqueceu a senha?</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
           style={styles.buttonSecondary}
           onPress={() => navigation.navigate("TelaCadastro")}
         >
-          <Text style={styles.buttonText}>{t("createAccount") || "Criar Conta"}</Text>
+          <Text style={styles.buttonText}>Criar Conta</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -148,14 +145,14 @@ const styles = StyleSheet.create({
   input: {
     width: "100%",
     height: 50,
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
+  backgroundColor: "#4FC3F7",
     borderRadius: 12,
     paddingHorizontal: 16,
     color: "#fff",
     marginBottom: 16,
   },
   buttonPrimary: {
-    backgroundColor: "#fff",
+  backgroundColor: "#4FC3F7",
     width: "100%",
     paddingVertical: 16,
     borderRadius: 30,
@@ -163,7 +160,7 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   buttonSecondary: {
-    backgroundColor: "#fff",
+  backgroundColor: "#4FC3F7",
     width: "100%",
     paddingVertical: 16,
     borderRadius: 30,
@@ -171,7 +168,7 @@ const styles = StyleSheet.create({
     marginTop: 14,
   },
   buttonText: {
-    color: "#0b394f",
+    color: "#FFFFFF",
     fontSize: 16,
     fontWeight: "bold",
   },

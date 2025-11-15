@@ -1,54 +1,34 @@
-# Mottu Sense
+```markdown
+# WorkZen — Bem-estar Mental no Trabalho
 
-Mottu Sense é um aplicativo móvel desenvolvido para cadastrar motos e fornecer localização em tempo real dentro de pátios de estacionamento e centros de distribuição. O objetivo é permitir que equipes operacionais encontrem motos rapidamente, acompanhem entradas/saídas em tempo real e tenham um inventário confiável do pátio, reduzindo retrabalho e otimizando deslocamentos.
+Este repositório contém o aplicativo móvel Work Zen, agora focado em promover bem-estar mental no ambiente de trabalho. O app oferece meditações guiadas, exercícios de respiração, trilhas de sono e foco, conteúdo de autoajuda e planos de assinatura para empresas e colaboradores.
 
-## Proposta
+## Visão geral
 
-Mottu Sense foi criado para empresas que precisam gerenciar grandes volumes de motos em pátios, centros de distribuição ou garagens. O sistema centraliza o cadastro, histórico e status das motos que entram e saem do pátio, permitindo buscas rápidas e visão geral do espaço.
+O objetivo é fornecer ferramentas práticas e acessíveis para reduzir estresse, melhorar o sono e aumentar a concentração de colaboradores. O aplicativo combina sessões curtas, trilhas personalizadas e acompanhamento de progresso para criar uma rotina sustentável de cuidado mental.
 
-Objetivos principais:
-- Registrar e listar motos que entram no pátio com informações essenciais (placa, modelo, hora de entrada, responsável, observações).
-- Facilitar a localização das motos dentro do pátio para reduzir tempo gasto pela equipe operacional.
-- Oferecer dashboards e relatórios básicos sobre ocupação do pátio e movimentações.
-
-Visão futura (roadmap):
-- Mapa/planta do pátio com posicionamento aproximado das motos.
-- Integração com leitores QR/RFID e sensores para automação de entrada/saída.
-- Notificações e alertas sobre permanência prolongada e manutenção pendente.
-- Exportação de relatórios para CSV/PDF.
-
-## Funcionalidades
-
-- Dashboard com resumo das atividades e estatísticas.
-- Tela de cadastro de motos.
-- Tela de busca e listagem de motos.
-- Tela de controle/visualização do pátio.
-- Componentes reutilizáveis de UI (cards, botões, ícones, loading).
-- Suporte a troca de tema (ThemeSwitcher).
+Principais recursos:
+- Meditações guiadas (curtas e longas)
+- Exercícios respiratórios com temporizador
+- Trilhas de sono e foco personalizadas
+- Conteúdo de autoajuda e exercícios práticos
+- Planos Free e Premium (assinatura)
+- Estatísticas básicas de uso e progresso
 
 ## Estrutura do projeto
 
-Baseada na organização atual do repositório:
+Arquivos e pastas principais:
 
 - `App.js` - ponto de entrada do aplicativo
 - `index.js` - bootstrap
 - `package.json` - dependências e scripts
 - `src/` - código fonte
 	- `assets/` - imagens e ícones (icons, splash, etc.)
-	- `Componentes/` - componentes específicos do projeto
-		- `Dashboard/` - componentes do dashboard (Card, InfoCard, ActivityItem, estilos)
-		- `telaPrincipal/` - componentes relacionados à tela principal
-	- `components/` - componentes de UI reutilizáveis
-		- `ui/` - botões, cards, icons, Loading
-	- `Telas/` - telas do aplicativo
-		- `BuscarMoto.js` - tela de busca
-		- `CadastroMoto.js` - tela de cadastro
-		- `PatioMoto.js` - tela de pátio
-		- `TelaCadastro.js`, `TelaFormulario.js`, `TelaHome.js` e outras telas auxiliares
-		- `telaPrincipal/` - versão ou conjunto de componentes da tela principal
+	- `components/` - componentes de UI reutilizáveis (ui/button.js, card.js, Loading.js)
+	- `Componentes/` - componentes específicos (Header, ThemeSwitcher, LanguageSwitcher)
+	- `Telas/` - telas do aplicativo (TelaHome, TelaPrincipal, TelaRecursos, TelaRespiracao, SobreNos)
 	- `theme/` - tema e contexto (ThemeContext.js, theme.js)
-
-Obs: a estrutura pode conter duplicidades de nomes (ex.: `Componentes` e `components`) que refletem a organização atual do projeto.
+Obs: a estrutura mantém algumas pastas com nomes similares (`Componentes` e `components`) conforme organização atual do projeto.
 
 ## Como rodar (ambiente de desenvolvimento)
 
@@ -58,44 +38,62 @@ Obs: a estrutura pode conter duplicidades de nomes (ex.: `Componentes` e `compon
 npm install
 ```
 
-2. Iniciar o projeto (Expo ou React Native):
+2. Instalar pods (iOS) — rode dentro da pasta `ios` se for necessário usar `expo run:ios` ou builds nativos:
+
+```bash
+cd ios && pod install
+```
+
+3. Iniciar o projeto (Expo):
 
 ```bash
 npm start
 ```
 
-3. Seguir instruções do Expo para abrir em emulador ou dispositivo físico.
+4. Abrir em dispositivo/emulador seguindo o QR do Expo ou using `npm run android` / `npm run ios`.
+
+Notas:
+- Este projeto usa Expo; se você usar o workflow bare, pode ser necessário instalar dependências nativas e rodar `pod install` no iOS.
+
+## Bibliotecas e dependências importantes
+
+As dependências principais do projeto (extraídas de `package.json`):
+
+- expo — ambiente de desenvolvimento React Native (SDK ~52)
+- react, react-native — core do app
+- @react-navigation/native, @react-navigation/stack — navegação
+- axios — requisições HTTP
+- @react-native-async-storage/async-storage — armazenamento local
+- react-native-vector-icons — ícones vetoriais
+- react-native-reanimated, react-native-gesture-handler, react-native-safe-area-context, react-native-screens — animações, gestos e compatibilidade
+- react-native-svg — suporte a SVGs (usado por ícones e gráficos)
+- lucide-react-native — biblioteca de ícones (adicionada recentemente)
+- @react-native-picker/picker — componente Picker nativo
+- expo-notifications, expo-constants, expo-device, expo-status-bar, expo-system-ui — utilitários Expo
+
+Se outras bibliotecas forem adicionadas (ex.: analytics, auth, push providers), atualize `package.json` e esta seção.
 
 ## Integrantes
 
 - Natasha Lopes — RM 554816 — GitHub: `natahalopees1`
 - Barbara Dias — RM 556974 — GitHub: `bahdiaz`
-- Ruan Pablo — RM 557727 — GitHub: `juanpabloruiz583`
 
-## Observações
+## Desenvolvimento e boas práticas
 
-- Este README é uma base inicial; adapte e complemente com instruções de configuração específicas (por exemplo, variáveis de ambiente, serviços backend, scripts de build) quando forem adicionados ao projeto.
-- Para documentação de API, diagramas de pátio ou exemplos de uso, crie arquivos adicionais na pasta `docs/`.
+- Use o `ThemeContext` para manter consistência visual entre telas.
+- Reutilize componentes em `src/components/ui` para manter consistência e facilitar manutenção.
+- Escreva testes simples em componentes críticos (opcional) e mantenha linter configurado para checar qualidade do código.
+
+## Contribuição
+
+- Crie uma branch a partir de `main` para sua feature/bugfix.
+- Abra pull requests claros, com descrição do que foi alterado e como testar.
+
+## Observações e próximos passos
+
+- Atualize as traduções em `src/i18n` para as novas strings adicionadas na interface (ex.: textos de planos, recursos).
+- Se integrar provedores de pagamento para assinatura, documente variáveis de ambiente e passos de configuração.
 
 ---
 
-Se quiser, posso:
-- Gerar um arquivo `docs/plant_patio.md` com sugestões de modelagem da planta do pátio.
-- Adicionar badges (build, license) e instruções separadas para Expo vs React Native CLI.
-- Inserir exemplos de telas ou capturas (se fornecer imagens em `src/assets`).
-
-## Tecnologias
-
-Principais bibliotecas e frameworks usados no projeto (baseado em `package.json`):
-
-- Expo (SDK) — ambiente para desenvolvimento React Native.
-- React Native — framework para desenvolvimento móvel.
-- React — biblioteca de UI.
-- React Navigation (`@react-navigation/native`, `@react-navigation/stack`) — navegação entre telas.
-- Axios — requisições HTTP.
-- Async Storage (`@react-native-async-storage/async-storage`) — armazenamento local.
-- React Native Vector Icons — ícones vetoriais.
-- react-native-reanimated, react-native-gesture-handler, react-native-safe-area-context, react-native-screens — bibliotecas para melhorar gestos, animações e compatibilidade com dispositivos.
-
-Se houver integrações de backend, sensores ou APIs de localização em tempo real, podemos acrescentar dependências e instruções específicas conforme a arquitetura escolhida.
 

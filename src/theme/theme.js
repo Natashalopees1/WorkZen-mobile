@@ -7,64 +7,65 @@ const theme = {
   light: {
     name: 'light',
     colors: {
-      // Cores de fundo
-      background: '#a7c1ad',     // Verde claro (original)
-      cardBackground: '#ffffff', // Branco
-      secondaryBackground: '#eef4ef', // Verde muito claro para cards secundários
-      
-      // Cores de texto
-      text: '#1f3b32',           // Verde escuro quase preto
-      subtitleText: '#2d5d50',   // Verde médio escuro
-      secondaryText: '#555555',  // Cinza para textos secundários
-      
-      // Cores de elementos
-      primary: '#2d5d50',        // Verde principal (usado em botões, ícones)
-      secondary: '#3a895f',      // Verde secundário 
-      accent: '#3a895f',         // Verde accent
-      border: '#e0e0e0',         // Cinza claro para bordas
-      
-      // Elementos de UI
-      statusBar: 'dark-content', // Estilo da barra de status
-      shadow: '#000000',         // Cor das sombras
-      
+      // Paleta harmônica (baseada nas cores fornecidas)
+  background: '#E9F2F6',    // fundo suave, menos saturado
+  primary: '#036691',       // azul-acinzentado mais profundo (botões)
+  primary700: '#034F6A',    // variante mais escura
+  accent: '#4AA9D9',        // destaque mais contido
+
+  // Superfícies (menos brilhantes)
+  cardBackground: '#F3F7F9',   // off-white com leve tom azulado e menos contraste
+  secondaryBackground: '#EDF6FA',
+  inputBackground: '#F6F9FB',  // usado por campos de texto para não ficar muito brilhante
+
+  // Texto
+  text: '#0B3140',          // azul-escuro levemente acinzentado para leitura
+  subtitleText: '#375A66',
+  secondaryText: '#637D86',
+
+  // Bordas e UI
+  border: '#D0E6EF',
+      statusBar: 'dark-content',
+      shadow: '#000000',
+
       // Estados
-      active: '#2d5d50',         // Verde para elementos ativos
-      inactive: '#cccccc',       // Cinza para elementos inativos
-      success: '#27ae60',        // Verde para sucesso
-      danger: '#e74c3c',         // Vermelho para erro
-      warning: '#f39c12',        // Amarelo para avisos
+      active: '#036691',
+      inactive: '#D3E6EE',
+      success: '#2EAC6D',
+      danger: '#E35858',
+      warning: '#F2A84B',
     }
   },
   
   dark: {
     name: 'dark',
     colors: {
-      // Cores de fundo
-      background: '#1a2b29',     // Verde muito escuro
-      cardBackground: '#253e3a', // Verde escuro para cards
-      secondaryBackground: '#2f4945', // Verde escuro secundário
-      
-      // Cores de texto
-      text: '#e0f0e8',           // Verde claro quase branco
-      subtitleText: '#a7c1ad',   // Verde médio claro
-      secondaryText: '#aaaaaa',  // Cinza claro para textos secundários
-      
-      // Cores de elementos
-      primary: '#3a895f',        // Verde médio (mais saturado no dark mode)
-      secondary: '#2d5d50',      // Verde mais escuro
-      accent: '#4ebb84',         // Verde mais claro como accent
-      border: '#3f5854',         // Verde escuro para bordas
-      
-      // Elementos de UI
-      statusBar: 'light-content', // Estilo da barra de status
-      shadow: '#000000',          // Cor das sombras
-      
+      // Paleta harmônica para modo escuro
+  background: '#081F2B',     // fundo escuro com ligeiro tom teal
+  primary: '#3AB8E0',        // azul claro contido como destaque
+  primary700: '#2E9BB8',     // variante média
+  accent: '#2E9BB8',
+
+      // Superfícies
+  cardBackground: '#0C3246',
+  secondaryBackground: '#0F3B51',
+
+      // Texto
+  text: '#EAF6FB',
+  subtitleText: '#BEEAF7',
+  secondaryText: '#93C9DC',
+
+      // Bordas e UI
+  border: '#0B3A50',
+      statusBar: 'light-content',
+      shadow: '#000000',
+
       // Estados
-      active: '#4ebb84',          // Verde claro para elementos ativos
-      inactive: '#556b67',        // Verde acinzentado para elementos inativos
-      success: '#2ecc71',         // Verde para sucesso
-      danger: '#e74c3c',          // Vermelho para erro
-      warning: '#f39c12',         // Amarelo para avisos
+  active: '#3AB8E0',
+  inactive: '#20353F',
+  success: '#27A35A',
+      danger: '#E35858',
+      warning: '#F2A84B',
     }
   }
 };

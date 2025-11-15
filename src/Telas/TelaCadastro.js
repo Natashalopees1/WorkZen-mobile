@@ -4,19 +4,16 @@ import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useTheme } from "../theme/ThemeContext";
 import ThemeSwitcher from "../Componentes/ThemeSwitcher";
-import LanguageSwitcher from "../Componentes/LanguageSwitcher";
-import { useI18n } from "../i18n/I18nProvider";
 
 export default function TelaCadastro({ navigation }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { theme } = useTheme();
-  const { t } = useI18n();
 
   const handleRegister = async () => {
     if (!name || !email || !password ) {
-      alert(t("pleaseFillAll") || "Por favor, preencha todos os campos!");
+      alert("Por favor, preencha todos os campos!");
       return;
     }
 
@@ -38,12 +35,12 @@ export default function TelaCadastro({ navigation }) {
       await AsyncStorage.setItem("email", email);
       await AsyncStorage.setItem("senha", password);
 
-      // Notifica sucesso (usa texto de i18n quando disponível)
-      alert(t("registrationSuccess") || "Cadastro realizado", response?.data?.message || `Usuário ${email} cadastrado com sucesso!`);
+  // Notifica sucesso
+  alert("Cadastro realizado", response?.data?.message || `Usuário ${email} cadastrado com sucesso!`);
       navigation.goBack();
     } catch (e) {
       // Tenta extrair mensagem do erro retornado pela API
-      const errMsg = e?.response?.data?.message || e.message || (t("storageError") || "Erro ao salvar dados localmente.");
+  const errMsg = e?.response?.data?.message || e.message || "Erro ao salvar dados localmente.";
       alert(errMsg);
     }
   };
@@ -52,11 +49,10 @@ export default function TelaCadastro({ navigation }) {
     <View style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <StatusBar backgroundColor={theme.colors.background} barStyle={theme.colors.statusBar} />
       <View style={styles.themeButtonContainer}>
-        <LanguageSwitcher />
         <ThemeSwitcher />
       </View>
-      <Text style={[styles.title, { color: theme.colors.text }]}>📝 {t("register") || "Cadastro"}</Text>
-      <Text style={[styles.subtitle, { color: theme.colors.subtitleText }]}>{t("fillDetails") || "Preencha seus dados para continuar"}</Text>
+  <Text style={[styles.title, { color: theme.colors.text }]}> Cadastro</Text>
+  <Text style={[styles.subtitle, { color: theme.colors.subtitleText }]}>Preencha seus dados para continuar</Text>
 
       <TextInput
         style={[styles.input, { 
@@ -64,7 +60,7 @@ export default function TelaCadastro({ navigation }) {
           borderColor: theme.colors.border,
           color: theme.colors.text
         }]}
-  placeholder={t("fullNamePlaceholder") || "Seu nome completo"}
+  placeholder={"Seu nome completo"}
         value={name}
         onChangeText={setName}
         placeholderTextColor={theme.name === 'dark' ? '#aaa' : '#999'}
@@ -75,7 +71,7 @@ export default function TelaCadastro({ navigation }) {
           borderColor: theme.colors.border,
           color: theme.colors.text
         }]}
-  placeholder={t("emailPlaceholder") || "Seu e-mail"}
+  placeholder={"Seu e-mail"}
         keyboardType="email-address"
         autoCapitalize="none"
         value={email}
@@ -88,7 +84,7 @@ export default function TelaCadastro({ navigation }) {
           borderColor: theme.colors.border,
           color: theme.colors.text
         }]}
-  placeholder={t("createPasswordPlaceholder") || "Crie uma senha"}
+  placeholder={"Crie uma senha"}
         secureTextEntry
         value={password}
         onChangeText={setPassword}
@@ -99,7 +95,7 @@ export default function TelaCadastro({ navigation }) {
         style={[styles.buttonFilled, { backgroundColor: theme.colors.primary }]} 
         onPress={handleRegister}
       >
-  <Text style={styles.buttonTextFilled}>{t("registerAction") || "Cadastrar"}</Text>
+  <Text style={styles.buttonTextFilled}>Cadastrar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -160,7 +156,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   buttonFilled: {
-    backgroundColor: "#0b394f",
+    backgroundColor: "#4FC3F7",
     paddingVertical: 16,
     borderRadius: 12,
     width: "100%",

@@ -1,27 +1,27 @@
 import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
-import { useI18n } from "./i18n/I18nProvider";
+// i18n removido; usar strings literais
 
 export default function Header({ onLoginPress, onRegisterPress, onAboutUsPress, onMembersPress, onFormPress }) {
-  const { t } = useI18n();
+  // sem i18n
 
   return (
     <View style={styles.header}>
       <View style={styles.headerButtons}>
         <TouchableOpacity style={styles.button} onPress={onLoginPress}>
-          <Text style={styles.buttonText}>{t("login") || "Login"}</Text>
+          <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.registerButton]} onPress={onRegisterPress}>
-          <Text style={styles.buttonText}>{t("signup") || "Cadastre-se"}</Text>
+          <Text style={styles.buttonText}>Cadastre-se</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.registerButton]} onPress={onAboutUsPress}>
-          <Text style={styles.buttonText}>{t("moreAboutUs") || "Mais sobre nós"}</Text>
+          <Text style={styles.buttonText}>Mais sobre nós</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button]} onPress={onMembersPress }>
-          <Text style={styles.buttonText}>{t("participants") || "Participantes"}</Text>
+          <Text style={styles.buttonText}>Participantes</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.registerButton]} onPress={onFormPress}>
-          <Text style={styles.buttonText}>{t("form") || "Formulario"}</Text>
+          <Text style={styles.buttonText}>Formulario</Text>
         </TouchableOpacity>
       </View>
     </View>
