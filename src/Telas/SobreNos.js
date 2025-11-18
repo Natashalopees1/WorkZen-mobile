@@ -67,6 +67,10 @@ export default function SobreNos({ navigation }) {
         </TouchableOpacity>
 
   <Text style={[styles.version, { color: theme.colors.subtitleText }]}>Versão 1.0.0</Text>
+        <View style={[styles.hashBox, { borderColor: theme.colors.border, backgroundColor: theme.colors.cardBackground }]}>
+          <Text style={[styles.sectionTitle, { color: theme.colors.subtitleText, fontSize: 13 }]}>Commit hash</Text>
+          <Text selectable={true} style={[styles.hashText, { color: theme.colors.text, marginTop: 6 }]}>0e10bbb221c5e64cd9a366cd748c99f39b44551f</Text>
+        </View>
       </View>
     </ScrollView>
   );
